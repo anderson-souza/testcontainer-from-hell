@@ -2,18 +2,17 @@ package com.aps.integrationtestcontainer.firsttry
 
 import com.aps.integrationtestcontainer.Car
 import com.aps.integrationtestcontainer.CarRepository
-import org.junit.Before
-import org.junit.Test
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import kotlin.math.roundToInt
 
-public class CarControllerTest : DatabaseContainerConfiguration() {
+class CarControllerTest : DatabaseContainerConfiguration() {
 
     @Autowired
     private lateinit var carRepository: CarRepository
 
-    @Before
+    @BeforeEach
     fun setUp() {
         val random = Math.random().roundToInt()
         carRepository.save(Car("Jeta ${random}", "Sedan"))
